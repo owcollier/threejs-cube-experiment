@@ -29,7 +29,7 @@ function init() {
   ];
 
   geometry = new THREE.PolyhedronGeometry( verticesOfCube, indicesOfFaces, 6, 2 );
-  material = new THREE.MeshNormalMaterial( { flatShading: false , wireframe: true } );
+  material = new THREE.MeshNormalMaterial( { flatShading: true , wireframe: false } );
   cube = new THREE.Mesh( geometry, material );
   scene.add( cube );
 
@@ -40,7 +40,7 @@ function init() {
   //controls.addEventListener( 'change', render ); // call this only in static scenes (i.e., if there is no animation loop)
   controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
   controls.dampingFactor = 0.25;
-  controls.screenSpacePanning = true;
+  controls.enablePan = false;
   controls.minDistance = 15;
   controls.maxDistance = 100;
   controls.maxPolarAngle = Math.PI / 2;
