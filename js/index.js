@@ -15,7 +15,7 @@ function init() {
   document.body.appendChild( renderer.domElement );
 
   let verticesOfCube = [
-    -1,-1,-1,    1,-1,-1,    1, 1,-1,    -1, 1,-1,
+    -1, -1, -1,    1,-1,-1,    1, 1,-1,    -1, 1,-1,
     -1,-1, 1,    1,-1, 1,    1, 1, 1,    -1, 1, 1,
   ];
 
@@ -28,8 +28,8 @@ function init() {
     4,5,6,    6,7,4
   ];
 
-  geometry = new THREE.PolyhedronGeometry( verticesOfCube, indicesOfFaces, 6, 2 );
-  material = new THREE.MeshNormalMaterial( { flatShading: true , wireframe: false } );
+  geometry = new THREE.PolyhedronGeometry( verticesOfCube, indicesOfFaces, 6, 4 );
+  material = new THREE.MeshNormalMaterial( { flatShading: false , wireframe: true } );
   cube = new THREE.Mesh( geometry, material );
   scene.add( cube );
 
