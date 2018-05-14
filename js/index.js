@@ -15,7 +15,7 @@ function init() {
   document.body.appendChild( renderer.domElement );
 
   geometry = new THREE.BoxGeometry( 1, 1, 1 );
-  material = new THREE.MeshNormalMaterial();
+  material = new THREE.MeshNormalMaterial( { flatShading: true, morphTargets: true } );
   cube = new THREE.Mesh( geometry, material );
   scene.add( cube );
 
