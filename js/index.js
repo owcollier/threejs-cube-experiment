@@ -53,6 +53,14 @@ function generateGeometry(count) {
 
   }
 
+  // compute Normals
+  geometry.computeVertexNormals();
+
+  // normalize the geometry
+  geometry.normalize();
+
+  return geometry;
+
 }
 
 function init() {
