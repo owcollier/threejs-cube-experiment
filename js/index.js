@@ -2,11 +2,11 @@
 
 let scene, camera, controls, renderer;
 
-let material, object;
+let material, object, count = 20;
 
-function generateGeometry() {
+function generateGeometry(count) {
 
-  return new THREE.TetrahedronGeometry();
+  
 
 }
 
@@ -34,7 +34,7 @@ function init() {
 
   // geometry = new THREE.PolyhedronGeometry( verticesOfCube, indicesOfFaces, 6,  2);
   material = new THREE.MeshNormalMaterial( { flatShading: false , wireframe: true } );
-  object = new THREE.Mesh( generateGeometry(), material );
+  object = new THREE.Mesh( generateGeometry(count), material );
   scene.add( object );
 
   camera.position.z = 15;
