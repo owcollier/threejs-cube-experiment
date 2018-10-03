@@ -6,7 +6,35 @@ let material, object, count = 20;
 
 function generateGeometry(count) {
 
-  
+  let geometry = new THREE.Geometry();
+
+  let offset, pane, x = 0, y = 0, z = 0;
+
+  count = count || 6;
+
+  // generate vertices
+  pane = 0;
+  while (pane < count) {
+
+    let i = 0,
+      per = pane / count,
+      length = 4;
+
+    while (i < length) {
+
+      x = Math.floor(i % 2) + pane * 1.5;
+      y = Math.floor(i / 2);
+      z = pane * per;
+
+      geometry.vertices.push(new THREE.Vector3(x, y, z));
+
+      i += 1;
+
+    }
+
+    pane += 1;
+
+  }
 
 }
 
