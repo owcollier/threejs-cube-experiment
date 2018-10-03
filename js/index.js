@@ -2,7 +2,7 @@
 
 let scene, camera, controls, renderer;
 
-let material, object, count = 20;
+let material, object, count = 1;
 
 function generateGeometry(count) {
 
@@ -53,11 +53,15 @@ function generateGeometry(count) {
 
   }
 
+  console.log('before normalization: ', geometry.vertices, geometry.faces);
+
   // compute Normals
   geometry.computeVertexNormals();
 
   // normalize the geometry
   geometry.normalize();
+
+  console.log('after normalization: ', geometry.vertices, geometry.faces);
 
   return geometry;
 
@@ -98,8 +102,8 @@ function init() {
   controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
   controls.dampingFactor = 0.25;
   controls.enablePan = false;
-  controls.minDistance = 15;
-  controls.maxDistance = 100;
+  controls.minDistance = 0;
+  controls.maxDistance = 10;
   controls.maxPolarAngle = Math.PI / 2;
 }
 
