@@ -12,7 +12,7 @@ function generateGeometry(count) {
 
   count = count || 6;
 
-  // generate vertices
+  // generate the vertices for our geometry
   pane = 0;
   while (pane < count) {
 
@@ -31,6 +31,23 @@ function generateGeometry(count) {
       i += 1;
 
     }
+
+    pane += 1;
+
+  }
+
+  // generate the faces for our geometry
+  pane = 0;
+  while (pane < count) {
+
+    offset = pane * 4;
+
+    geometry.faces.push(
+
+      new THREE.Face3(0 + offset, 1 + offset, 2 + offset),
+      new THREE.Face3(3 + offset, 2 + offset, 1 + offset)
+
+    );
 
     pane += 1;
 
