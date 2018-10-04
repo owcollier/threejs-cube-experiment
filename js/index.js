@@ -2,13 +2,11 @@
 
 let scene, camera, controls, renderer;
 
-let material, object;
+let material, object, geometry;
 
-function generateGeometry() {
+const vertices = [[0,0,1.224745],[1.154701,0,0.4082483],[-0.5773503,1,0.4082483],[-0.5773503,-1,0.4082483],[0.5773503,1,-0.4082483],[0.5773503,-1,-0.4082483],[-1.154701,0,-0.4082483],[0,0,-1.224745]];
 
-  return new THREE.TetrahedronGeometry();
-
-}
+const indices = [[0,1,4,2],[0,2,6,3],[0,3,5,1],[1,5,7,4],[2,4,7,6],[3,6,7,5]];
 
 function init() {
   scene = new THREE.Scene();
@@ -18,23 +16,9 @@ function init() {
   renderer.setSize( window.innerWidth, window.innerHeight );
   document.body.appendChild( renderer.domElement );
 
-  // const verticesOfCube = [
-  //   -1,-1,-1,    1,-1,-1,    1, 1,-1,    -1, 1,-1,
-  //   -1,-1, 1,    1,-1, 1,    1, 1, 1,    -1, 1, 1,
-  // ];
-
-  // const indicesOfFaces = [
-  //   2,1,0,    0,3,2,
-  //   0,4,7,    7,3,0,
-  //   0,1,5,    5,4,0,
-  //   1,2,6,    6,5,1,
-  //   2,3,7,    7,6,2,
-  //   4,5,6,    6,7,4
-  // ];
-
-  // geometry = new THREE.PolyhedronGeometry( verticesOfCube, indicesOfFaces, 6,  2);
+  geometry = new THREE.PolyhedronGeometry( vertices, indices, 6, 0);
   material = new THREE.MeshNormalMaterial( { flatShading: false , wireframe: true } );
-  object = new THREE.Mesh( generateGeometry(), material );
+  object = new THREE.Mesh( geometry, material );
   scene.add( object );
 
   camera.position.z = 15;
